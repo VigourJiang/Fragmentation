@@ -1,12 +1,12 @@
 package com.lightcone.fragmentation;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-public class Detail_Activity extends Activity {
+public class Detail_Activity extends AppCompatActivity {
 
     private final static String TAG = "FRAG";
 
