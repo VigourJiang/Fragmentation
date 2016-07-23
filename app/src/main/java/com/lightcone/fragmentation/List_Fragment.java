@@ -1,7 +1,7 @@
 package com.lightcone.fragmentation;
 
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +21,7 @@ public class List_Fragment extends Fragment {
     // the fragment here.
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
@@ -68,7 +68,7 @@ public class List_Fragment extends Fragment {
         // Only adding the 3rd fragment in landscape mode, so hide the 4th button
         // if not in landscape.
 
-        if(getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE)
+        if (getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE)
             button4.setVisibility(View.INVISIBLE);
 
         button4.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +87,7 @@ public class List_Fragment extends Fragment {
     // should be persisted beyond the current user session should be committed here.
 
     @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
     }
 
@@ -95,11 +95,11 @@ public class List_Fragment extends Fragment {
     // passing in the activity as its argument.
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context context) {
 
-        super.onAttach(activity);
+        super.onAttach(context);
 
-        Log.i(TAG, "List_Fragment attached to "+activity.getComponentName().getClassName());
+        Log.i(TAG, "List_Fragment attached to " + getActivity().getComponentName().getClassName());
 
         // Instantiate the OnItemSelectedListener by casting the host activity (MainActivity,
         // in this case).  If the host MainActivity did not implement the interface OnItemSelectedListener,
@@ -115,9 +115,9 @@ public class List_Fragment extends Fragment {
         // according to the button that was clicked in the present fragment.
 
         try {
-            listener = (OnItemSelectedListener) activity;
+            listener = (OnItemSelectedListener) getActivity();
         } catch (ClassCastException e) {
-            throw new ClassCastException( activity.getComponentName().getClassName()
+            throw new ClassCastException(getActivity().getComponentName().getClassName()
                     + " must implement ListFragment.OnItemSelectedListener");
         }
 
@@ -125,7 +125,7 @@ public class List_Fragment extends Fragment {
 
 
 	/* When a fragment needs to share events with its host activity, a good approach
-	 * is to define a callback interface within the fragment and then require that
+     * is to define a callback interface within the fragment and then require that
 	 * the host activity implement it. For example, in the present application,
 	 * fragment A (the present List_Fragment) displays buttons that choose which image
 	 * is displayed in an ImageView in fragment B (Detail_Fragment).  Fragment A (the
@@ -142,5 +142,4 @@ public class List_Fragment extends Fragment {
     public interface OnItemSelectedListener {
         public void onItemSelected(int buttonNumber);
     }
-
 }

@@ -29,5 +29,4 @@ public class Detail_Activity extends Activity {
         view.setText(MainActivity.planetLabel[MainActivity.planetIndex]);
 
     }
-
 }

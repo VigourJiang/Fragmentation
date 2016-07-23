@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.util.Log;
-import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity implements List_Fragment.OnItemSelectedListener {
 
@@ -21,18 +20,19 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
 
     // Array of image files.  Files with these names must be copied into the project
     // assets subdirectory.  The assets directory will be copied to the device when
-    // the app is installed.
+    // the app is installed. All of the following strings should more properly be
+    // defined in strings.xml but they are hardwired in here for clarity.
 
-    public static String planetImage [] = {
+    public static String planetImage[] = {
             "hst_mars_opp_9709a.jpg",
             "jupiter_gany.jpg",
-            "saturn.jpg" };
+            "saturn.jpg"};
 
     // Array of planet labels
-    public static String planetLabel [] = {"Mars", "Jupiter", "Saturn"};
+    public static String planetLabel[] = {"Mars", "Jupiter", "Saturn"};
 
     // Array of amplifying remarks
-    public static String amplifyRemark [] = {
+    public static String amplifyRemark[] = {
             "Mars is called the red planet. It has a thin atmosphere and polar ice caps.",
             "Jupiter is the largest planet, and has very strong magnetic fields.",
             "Saturn has the lowest density of any planet, less than that of water."};
@@ -42,37 +42,30 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i(TAG, "in onCreate, fragAdded ="+fragAdded);
+        Log.i(TAG, "in onCreate, fragAdded =" + fragAdded);
 
     }
 
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }*/
-
-    public void onPause(){
+    public void onPause() {
         super.onPause();
 
         // Remove the amplifying remarks fragment if it exists to set a clean
         // stage if we come back.
 
-        if(fragAdded && adder != null){
+        if (fragAdded && adder != null) {
 
             fm = getFragmentManager();
             ft = fm.beginTransaction();
             ft.remove(adder);
             ft.commit();
             fragAdded = false;
-            Log.i(TAG, "Removing fragment in MainActivity.onPause(). fragAdded="+fragAdded);
+            Log.i(TAG, "Removing fragment in MainActivity.onPause(). fragAdded=" + fragAdded);
         }
     }
 
-    public void Resume(){
+    public void onResume() {
         super.onResume();
-        Log.i(TAG, "in onResume, fragAdded ="+fragAdded);
+        Log.i(TAG, "in onResume, fragAdded =" + fragAdded);
     }
 
     // This callback required because we are implementing List_Fragment.OnItemSelectedListener.
@@ -90,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
         Detail_Fragment fragment =
                 (Detail_Fragment) getFragmentManager().findFragmentById(R.id.detailFragment);
 
-        if(fragment == null || !fragment.isInLayout()) {
+        if (fragment == null || !fragment.isInLayout()) {
             Log.i(TAG, "No instance of Detail_Fragment in this view, so launch new screen");
         } else {
             Log.i(TAG, "Instance of Detail_Fragment found in this view, so update the view");
@@ -101,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
         // the buttons pressed are in the fragment List_Fragment, this callback passes
         // in the id of the button pressed from there.
 
-        switch(buttonNumber){
+        switch (buttonNumber) {
 
             // Choose Mars
             case R.id.button01:
@@ -118,18 +111,18 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
                 planetIndex = 2;
                 break;
 
-            // Toggle adding and removing the third fragment using fragment transactions. It
+            // Toggle adding and removing the third fragment using fragment transactions.
 
             case R.id.button04:
 
-                if(fragment == null)Log.i(TAG,"fragment is null");
+                if (fragment == null) Log.i(TAG, "fragment is null");
 
                 if (fragment != null && fragment.isInLayout()) {
 
-                    Log.i(TAG, "fragAdded before transaction="+fragAdded);
+                    Log.i(TAG, "fragAdded before transaction=" + fragAdded);
 
                     // If the third fragment has previously been added, remove it
-                    if(fragAdded){
+                    if (fragAdded) {
                         fm = getFragmentManager();
                         ft = fm.beginTransaction();
                         ft.remove(adder);
@@ -157,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
                         // Bookkeeping to keep track of whether 3rd fragment is added
                         fragAdded = true;
                     }
-                    Log.i(TAG, "fragAdded after transaction="+fragAdded);
+                    Log.i(TAG, "fragAdded after transaction=" + fragAdded);
                 }
                 break;
         }
@@ -170,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
 
             fragment.setText(planetLabel[planetIndex]);
             fragment.setImage(planetImage[planetIndex]);
-            if(adder != null && adder.isAdded()) adder.setText(amplifyRemark[planetIndex]);
+            if (adder != null && adder.isAdded()) adder.setText(amplifyRemark[planetIndex]);
 
             // If the Detail_Fragment is not in the current layout, we must be in portrait
             // mode.  Launch a new screen to display Detail_Fragment when a button is pressed.

@@ -3,8 +3,8 @@ package com.lightcone.fragmentation;
 import java.io.IOException;
 import java.io.InputStream;
 
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +27,6 @@ public class Detail_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
     }
 
     // onCreateView() must be implemented by fragment to provide a layout. It
@@ -55,7 +54,6 @@ public class Detail_Fragment extends Fragment {
     @Override
     public void onPause(){
         super.onPause();
-
     }
 
     // onActivityCreated is called when the activity hosting the fragment has returned
@@ -78,10 +76,10 @@ public class Detail_Fragment extends Fragment {
     // may not be fully initialized.
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context context) {
 
-        super.onAttach(activity);
-        Log.i(TAG, "Detail_Fragment attached to " + activity.getComponentName().getClassName());
+        super.onAttach(context);
+        Log.i(TAG, "Detail_Fragment attached to " + getActivity().getComponentName().getClassName());
 
     }
 

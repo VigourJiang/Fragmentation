@@ -1,7 +1,7 @@
 package com.lightcone.fragmentation;
 
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,26 +24,26 @@ public class Added_Fragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context context) {
 
-        super.onAttach(activity);
+        super.onAttach(context);
 
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState){
+    public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            Log.i(TAG, "planetIndex="+MainActivity.planetIndex);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.i(TAG, "planetIndex=" + MainActivity.planetIndex);
             setText(MainActivity.amplifyRemark[MainActivity.planetIndex]);
         }
 
     }
 
     @Override
-    public void onDestroyView(){
+    public void onDestroyView() {
         super.onDestroyView();
 
         // This seems necessary to manage things when there is the option of using the back button
@@ -51,10 +51,10 @@ public class Added_Fragment extends Fragment {
         // MainActivity).
 
         MainActivity.fragAdded = false;
-        Log.i(TAG, "onDestroyView() in Added_Fragment, fragAdded="+MainActivity.fragAdded);
+        Log.i(TAG, "onDestroyView() in Added_Fragment, fragAdded=" + MainActivity.fragAdded);
     }
 
-    public void setText(String s){
+    public void setText(String s) {
         tv = (TextView) getActivity().findViewById(R.id.TextView2);
         tv.setText(s);
     }
