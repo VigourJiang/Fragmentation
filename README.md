@@ -10,7 +10,7 @@ will need
 
  - Android Studio (<a href="https://developer.android.com/studio/install.html" 
 target="_new">Installing Android Studio</a>)
- - An Android phone or an Android phone emulator launched from Android Studio
+ - An Android phone or tablet, or an Android phone or tablet emulator launched from Android Studio
  - Some image files that may be found in this <a 
 href="http://eagle.phys.utk.edu/guidry/android/images" target="_new">images 
 directory</a>
