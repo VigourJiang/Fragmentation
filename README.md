@@ -1,11 +1,11 @@
 # Fragmentation
-A project illustrating the general use of Fragments in Android programming.
+A project illustrating the general use of Fragments in Android programming. This version uses new methods in the API and is restricted to API 23 or greater.  A version converted from Eclipse to Android Studio that runs on APIs back to 15 may be found at https://github.com/guidrymwg/Fragmentation2.
 
 The projects in these repositories correspond to individual lessons in the free online android programming course at http://eagle.phys.utk.edu/guidry/android/ 
 
 ## Prerequisites
 This project assumes the Gradle build system in Android Studio. It was targeted 
-at Android 6.0 (API 23) but should be compatible with API 15 and beyond.  You 
+at Android 6.0 (API 23) and above because we use a method introduced in API 23.  You 
 will need
 
  - Android Studio (<a href="https://developer.android.com/studio/install.html" 
