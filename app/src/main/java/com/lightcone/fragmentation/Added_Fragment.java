@@ -58,5 +58,4 @@ public class Added_Fragment extends Fragment {
         tv = (TextView) getActivity().findViewById(R.id.TextView2);
         tv.setText(s);
     }
-
 }

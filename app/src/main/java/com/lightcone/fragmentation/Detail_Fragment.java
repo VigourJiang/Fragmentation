@@ -109,5 +109,4 @@ public class Detail_Fragment extends Fragment {
             return;
         }
     }
-
 }

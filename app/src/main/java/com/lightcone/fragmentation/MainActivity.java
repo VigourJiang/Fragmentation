@@ -175,5 +175,4 @@ public class MainActivity extends AppCompatActivity implements List_Fragment.OnI
 
         }
     }
-
 }
