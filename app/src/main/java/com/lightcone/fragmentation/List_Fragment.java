@@ -123,7 +123,6 @@ public class List_Fragment extends Fragment {
 
     }
 
-
 	/* When a fragment needs to share events with its host activity, a good approach
      * is to define a callback interface within the fragment and then require that
 	 * the host activity implement it. For example, in the present application,
