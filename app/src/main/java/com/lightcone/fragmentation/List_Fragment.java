@@ -94,6 +94,7 @@ public class List_Fragment extends Fragment {
     // When a fragment has been associated with an activity, onAttach(activity) is called,
     // passing in the activity as its argument.
 
+
     @Override
     public void onAttach(Context context) {
 
