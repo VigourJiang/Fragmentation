@@ -5,7 +5,7 @@ The projects in these repositories correspond to individual lessons in the free 
 
 ## Prerequisites
 This project assumes the Gradle build system in Android Studio. It was targeted 
-at Android 6.0 (API 23) but should be compatible with API 15 and beyond.  You 
+at Android 6.0 (API 23) and above because we use a method introduced in API 23.  You 
 will need
 
  - Android Studio (<a href="https://developer.android.com/studio/install.html" 
